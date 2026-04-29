@@ -1,0 +1,99 @@
+[
+  {
+    "id": "1777234231399",
+    "nume": "Cezar Balan",
+    "email": "sa@gmail.com",
+    "telefon": "123456",
+    "parola": "123456",
+    "dataInregistrare": "2026-04-26T20:10:31.399Z"
+  },
+  {
+    "id": "1777279345075",
+    "nume": "a",
+    "email": "a@gmail.com",
+    "telefon": "12345",
+    "parola": "123456789",
+    "dataInregistrare": "2026-04-27T08:42:25.075Z"
+  },
+  {
+    "id": "admin_1777281190451",
+    "nume": "Administrator",
+    "email": "FacatorDeViata@gmail.com",
+    "telefon": "",
+    "parola": "240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9",
+    "dataInregistrare": "2026-04-27T09:13:10.452Z",
+    "isAdmin": true
+  },
+  {
+    "id": "1777359174555",
+    "nume": "Cezar Balan",
+    "email": "cezar.balan@gmail.com",
+    "telefon": "",
+    "parola": "salutare1",
+    "dataInregistrare": "2026-04-28T06:52:54.555Z"
+  },
+  {
+    "id": "1777359582673",
+    "nume": "alex@gmail.com",
+    "email": "alexandru@gmail.com",
+    "telefon": "12345",
+    "parola": "alexalex",
+    "dataInregistrare": "2026-04-28T06:59:42.673Z"
+  },
+  {
+    "id": "1777360287241",
+    "nume": "bunica",
+    "email": "bunica@gmail.com",
+    "telefon": "12",
+    "parola": "bunica",
+    "dataInregistrare": "2026-04-28T07:11:27.241Z"
+  },
+  {
+    "id": "1777361413601",
+    "nume": "mama balan",
+    "email": "mama@gmail.com",
+    "telefon": "",
+    "parola": "mamamea",
+    "dataInregistrare": "2026-04-28T07:30:13.601Z"
+  },
+  {
+    "id": "1777361675490",
+    "nume": "mama balan",
+    "email": "mama1@gmail.com",
+    "telefon": "112",
+    "parola": "mama123",
+    "dataInregistrare": "2026-04-28T07:34:35.490Z"
+  },
+  {
+    "id": "1777361783726",
+    "nume": "tata",
+    "email": "tata@gmail.com",
+    "telefon": "111",
+    "parola": "tatatata",
+    "dataInregistrare": "2026-04-28T07:36:23.726Z"
+  },
+  {
+    "id": "1777362029007",
+    "nume": "tata1",
+    "email": "tata1@gmail.com",
+    "telefon": "96124",
+    "parola": "tata12",
+    "dataInregistrare": "2026-04-28T07:40:29.008Z"
+  },
+  {
+    "id": "1777362485777",
+    "nume": "bunelu balan",
+    "email": "bunelu@gmail.com",
+    "telefon": "4321",
+    "parola": "bunelu5",
+    "dataInregistrare": "2026-04-28T07:48:05.777Z"
+  },
+  {
+    "id": "1777444321980",
+    "nume": "ion",
+    "email": "satrop@gmail.com",
+    "telefon": "123456",
+    "parola": "salutaresalut",
+    "dataInregistrare": "2026-04-29T06:32:01.980Z"
+  }
+]
