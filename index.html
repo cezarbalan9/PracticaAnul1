@@ -1,0 +1,1086 @@
+<!doctype html>=""
+<html lang="ro">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Strop de Viată — Uleiuri Naturale Presate la Rece</title>
+    <meta
+      name="description"
+      content="Uleiuri presate la rece, din seminte selectate cu grija. Nici un aditiv. Nici un compromis."
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="antet">
+      <nav>
+        <a
+          class="logo"
+          href="#"
+          onclick="
+            navigheaza('acasa');
+            return false;
+          "
+        >
+          <span class="logo-inchis">strop</span>
+          <span class="logo-punct"></span>
+          <span class="logo-verde">viata</span>
+        </a>
+
+        <ul class="linkuri-nav">
+          <li>
+            <a
+              href="#"
+              data-pagina="acasa"
+              class="activ"
+              onclick="
+                navigheaza('acasa');
+                return false;
+              "
+              >Acasă</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              data-pagina="magazin"
+              onclick="
+                navigheaza('magazin');
+                return false;
+              "
+              >Magazin</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              data-pagina="despre"
+              onclick="
+                navigheaza('despre');
+                return false;
+              "
+              >Despre Noi</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              data-pagina="blog"
+              onclick="
+                navigheaza('blog');
+                return false;
+              "
+              >Blog</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              data-pagina="contact"
+              onclick="
+                navigheaza('contact');
+                return false;
+              "
+              >Contact</a
+            >
+          </li>
+        </ul>
+
+        <div class="actiuni-antet">
+          <a
+            href="autentificare.html"
+            class="buton-cos"
+            title="Contul meu"
+            style="text-decoration: none"
+          >
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.75"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+              <circle cx="12" cy="7" r="4" />
+            </svg>
+          </a>
+          <button class="buton-cos" onclick="deschideCos()">
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.75"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z" />
+              <line x1="3" x2="21" y1="6" y2="6" />
+              <path d="M16 10a4 4 0 0 1-8 0" />
+            </svg>
+            <span class="insigna-cos">0</span>
+          </button>
+          <button
+            class="buton-meniu"
+            onclick="comutaNavMobil()"
+            aria-label="Meniu"
+          >
+            <svg
+              width="22"
+              height="22"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+            >
+              <line x1="3" y1="6" x2="21" y2="6" />
+              <line x1="3" y1="12" x2="21" y2="12" />
+              <line x1="3" y1="18" x2="21" y2="18" />
+            </svg>
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <nav id="nav-mobil" class="nav-mobil">
+      <a
+        href="#"
+        data-pagina="acasa"
+        onclick="
+          navigheaza('acasa');
+          return false;
+        "
+        >Acasă</a
+      >
+      <a
+        href="#"
+        data-pagina="magazin"
+        onclick="
+          navigheaza('magazin');
+          return false;
+        "
+        >Magazin</a
+      >
+      <a
+        href="#"
+        data-pagina="despre"
+        onclick="
+          navigheaza('despre');
+          return false;
+        "
+        >Despre Noi</a
+      >
+      <a
+        href="#"
+        data-pagina="blog"
+        onclick="
+          navigheaza('blog');
+          return false;
+        "
+        >Blog</a
+      >
+      <a
+        href="#"
+        data-pagina="contact"
+        onclick="
+          navigheaza('contact');
+          return false;
+        "
+        >Contact</a
+      >
+    </nav>
+
+    <main>
+      <div id="pagina-acasa" class="pagina activ">
+        <section class="erou">
+          <div class="erou-fundal">
+            <img src="imagini/cimpie.png" alt="Uleiuri naturale" />
+            <div class="erou-suprapunere"></div>
+          </div>
+          <div class="erou-continut">
+            <span class="erou-eticheta animare-aparitie-sus"
+              >Produse 100% naturale</span
+            >
+            <h1 class="erou-titlu animare-aparitie-sus intarziere-1">
+              Un strop de<br />
+              <span>viata</span> pura
+            </h1>
+            <p class="erou-descriere animare-aparitie-sus intarziere-2">
+              Uleiuri presate la rece, din seminte selectate cu grija. Nici un
+              aditiv. Nici un compromis.
+            </p>
+            <div class="erou-butoane animare-aparitie-sus intarziere-3">
+              <a
+                href="#"
+                class="buton buton-principal buton-mare"
+                onclick="
+                  navigheaza('magazin');
+                  return false;
+                "
+              >
+                Descopera Produsele
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </a>
+              <a
+                href="#"
+                class="buton buton-contur buton-mare"
+                onclick="
+                  navigheaza('despre');
+                  return false;
+                "
+              >
+                Povestea Noastra
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <section class="banda-imagini">
+          <div class="element-banda">
+            <img
+              src="https://images.unsplash.com/photo-1766336041971-52f9b44c25fd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=600&q=80"
+              alt="Seeds"
+              loading="lazy"
+            />
+          </div>
+          <div class="element-banda">
+            <img
+              src="https://images.unsplash.com/photo-1682750545496-39068ee7330b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=600&q=80"
+              alt="Flax field"
+              loading="lazy"
+            />
+          </div>
+          <div class="element-banda">
+            <img
+              src="https://images.unsplash.com/photo-1617855007712-bc2a2debb32a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=600&q=80"
+              alt="Coconut"
+              loading="lazy"
+            />
+          </div>
+          <div class="element-banda">
+            <img
+              src="https://images.unsplash.com/photo-1772319617353-ebc97c5afd92?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=600&q=80"
+              alt="Oils"
+              loading="lazy"
+            />
+          </div>
+        </section>
+
+        <section class="sectiune-proces">
+          <div class="container">
+            <div class="text-centrat mb-20 dezvaluire">
+              <span class="eticheta-sectiune">Procesul nostru</span>
+              <h2 class="titlu-sectiune">De la Samanta la Sticla</h2>
+            </div>
+            <div class="grila-proces">
+              <div class="card-proces dezvaluire">
+                <div class="imagine-proces">
+                  <img
+                    src="https://images.unsplash.com/photo-1743193143897-5e1ad9c84165?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=600&q=80"
+                    alt="Recoltat cu Grija"
+                    loading="lazy"
+                  />
+                </div>
+                <span class="numar-proces">01</span>
+                <h3 class="nume-proces">Recoltat cu Grija</h3>
+                <p class="descriere-proces">
+                  Selectam cele mai bune seminte din ferme organice certificate
+                </p>
+              </div>
+              <div class="card-proces dezvaluire">
+                <div class="imagine-proces">
+                  <img
+                    src="https://images.unsplash.com/photo-1677146329971-fbef3e847b2f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=600&q=80"
+                    alt="Presat la Rece"
+                    loading="lazy"
+                  />
+                </div>
+                <span class="numar-proces">02</span>
+                <h3 class="nume-proces">Presat la Rece</h3>
+                <p class="descriere-proces">
+                  Procesul nostru pastreaza toti nutrientii si antioxidantii
+                </p>
+              </div>
+              <div class="card-proces dezvaluire">
+                <div class="imagine-proces">
+                  <img
+                    src="https://images.unsplash.com/photo-1637523420664-d28580d2a27d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=600&q=80"
+                    alt="Imbuteliat cu Pasiune"
+                    loading="lazy"
+                  />
+                </div>
+                <span class="numar-proces">03</span>
+                <h3 class="nume-proces">Imbuteliat cu Pasiune</h3>
+                <p class="descriere-proces">
+                  Fiecare sticla este rezultatul unei munci atente si dedicate
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="sectiune-produse">
+          <div class="container">
+            <div class="antet-sectiune">
+              <div class="antet-sectiune-stanga">
+                <span class="eticheta-sectiune">Colectia noastra</span>
+                <h2 class="titlu-sectiune">Produse Populare</h2>
+              </div>
+              <a
+                href="#"
+                class="vezi-toate"
+                onclick="
+                  navigheaza('magazin');
+                  return false;
+                "
+              >
+                Vezi toate
+                <svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </a>
+            </div>
+            <div class="grila-produse" id="produse-recomandate"></div>
+          </div>
+        </section>
+
+        <section class="sectiune-filozofie">
+          <div class="grila-filozofie">
+            <div class="imagine-filozofie">
+              <img
+                src="https://images.unsplash.com/photo-1684918061493-a3365486987f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800&q=80"
+                alt="Green field at sunrise"
+                loading="lazy"
+              />
+            </div>
+            <div class="text-filozofie">
+              <div class="text-filozofie-interior dezvaluire">
+                <span class="eticheta-sectiune">Filozofia noastra</span>
+                <h2 class="titlu-filozofie">Natura ca sursa de sanatate</h2>
+                <p>
+                  La Strop de Viata credem ca adevarata sanatate vine din
+                  natura. Toate produsele noastre sunt extrase prin presare la
+                  rece, o metoda care pastreaza intacta valoarea nutritiva.
+                </p>
+                <p>
+                  Nu folosim aditivi, conservanti sau procese chimice. Ceea ce
+                  ajunge la tine este esenta pura a naturii.
+                </p>
+                <a
+                  href="#"
+                  class="buton buton-contur-inchis"
+                  onclick="
+                    navigheaza('despre');
+                    return false;
+                  "
+                >
+                  Citeste Povestea Noastra
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="sectiune-testimoniale">
+          <div class="container">
+            <div class="text-centrat mb-16 dezvaluire">
+              <span class="eticheta-sectiune">Testimoniale</span>
+              <h2 class="titlu-sectiune">Ce Spun Clientii</h2>
+            </div>
+            <div class="grila-testimoniale">
+              <div class="card-testimonial dezvaluire">
+                <div class="stele">⭐⭐⭐⭐⭐</div>
+                <p class="text-testimonial">
+                  "De cand am descoperit Strop de Viata, simt o schimbare reala
+                  in energie si vitalitate."
+                </p>
+                <div class="nume-testimonial">Balan Cezar</div>
+                <div class="rol-testimonial">Client fidel</div>
+              </div>
+              <div class="card-testimonial dezvaluire">
+                <div class="stele">⭐⭐⭐⭐⭐</div>
+                <p class="text-testimonial">
+                  "Recomand cu incredere aceste uleiuri pacientilor mei.
+                  Calitate exceptionala."
+                </p>
+                <div class="nume-testimonial">Mihai Ionescu</div>
+                <div class="rol-testimonial">Nutritionist</div>
+              </div>
+              <div class="card-testimonial dezvaluire">
+                <div class="stele">⭐⭐⭐⭐⭐</div>
+                <p class="text-testimonial">
+                  "Familia mea consuma in fiecare zi produsele Strop de Viata.
+                  Stiu ca le ofer ceea ce e mai bun."
+                </p>
+                <div class="nume-testimonial">Elena Dumitrescu</div>
+                <div class="rol-testimonial">Mama de 2 copii</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="sectiune-apel">
+          <div class="apel-fundal">
+            <img
+              src="https://images.unsplash.com/photo-1760712629836-f3e18ac1242f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=1080&q=80"
+              alt="Healthy lifestyle"
+              loading="lazy"
+            />
+            <div class="apel-suprapunere"></div>
+          </div>
+          <div class="apel-continut dezvaluire">
+            <h2>Incepe o Viata Mai Sanatoasa</h2>
+            <p>
+              Alatura-te comunitatii noastre si descopera beneficiile produselor
+              naturale
+            </p>
+            <a
+              href="#"
+              class="buton buton-alb buton-mare"
+              onclick="
+                navigheaza('magazin');
+                return false;
+              "
+            >
+              Cumpara Acum
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </a>
+          </div>
+        </section>
+      </div>
+
+      <div id="pagina-magazin" class="pagina">
+        <div class="erou-magazin">
+          <div class="erou-pagina-fundal">
+            <img
+              src="https://images.unsplash.com/photo-1772319617353-ebc97c5afd92?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=1080&q=80"
+              alt="Shop"
+            />
+            <div class="erou-pagina-suprapunere"></div>
+          </div>
+          <div class="erou-pagina-continut">
+            <h1>Magazin</h1>
+            <p>Gama completa de produse naturale</p>
+          </div>
+        </div>
+
+        <div class="bara-filtre">
+          <div class="interior-filtre" id="filtre-magazin"></div>
+        </div>
+
+        <div class="continut-magazin">
+          <div class="container">
+            <p class="numar-produse" id="numar-produse-magazin"></p>
+            <div class="grila-magazin" id="produse-magazin"></div>
+          </div>
+        </div>
+      </div>
+
+      <div id="pagina-despre" class="pagina">
+        <div class="erou-despre">
+          <div class="erou-pagina-fundal">
+            <img src="imagini/cimpie.png" alt="Green field sunrise" />
+            <div class="erou-pagina-suprapunere"></div>
+          </div>
+          <div class="erou-pagina-continut">
+            <h1>Povestea Noastra</h1>
+            <p>
+              O pasiune pentru natura transformata intr-o misiune de sanatate
+            </p>
+          </div>
+        </div>
+
+        <div class="sectiune-misiune">
+          <div class="grila-misiune">
+            <div class="text-misiune" style="order: 2">
+              <div class="dezvaluire">
+                <span class="eticheta-sectiune">Misiunea noastra</span>
+                <h2 class="titlu-filozofie">Sanatatea incepe cu natura</h2>
+                <p>
+                  La Strop de Viata credem ca sanatatea incepe cu alegerile pe
+                  care le facem in fiecare zi. Misiunea noastra este sa oferim
+                  produse 100% naturale, extrase prin presare la rece.
+                </p>
+                <p>
+                  Ne angajam sa promovam un stil de viata sanatos si echilibrat,
+                  oferind produse de cea mai inalta calitate, fara aditivi,
+                  conservanti sau substante chimice.
+                </p>
+              </div>
+            </div>
+            <div class="imagine-misiune" style="order: 1">
+              <img
+                src="https://images.unsplash.com/photo-1755692880556-0ef824bb2593?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800&q=80"
+                alt="Our team"
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </div>
+
+        <section class="sectiune-statistici">
+          <div class="container">
+            <div class="grila-statistici">
+              <div class="dezvaluire">
+                <div class="numar-statistica">50K+</div>
+                <div class="eticheta-statistica">Clienti fericiti</div>
+              </div>
+              <div class="dezvaluire">
+                <div class="numar-statistica">100%</div>
+                <div class="eticheta-statistica">Ingrediente naturale</div>
+              </div>
+              <div class="dezvaluire">
+                <div class="numar-statistica">6+</div>
+                <div class="eticheta-statistica">Ani de experienta</div>
+              </div>
+              <div class="dezvaluire">
+                <div class="numar-statistica">20+</div>
+                <div class="eticheta-statistica">Produse premium</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="sectiune-valori">
+          <div class="container">
+            <div class="text-centrat mb-20 dezvaluire">
+              <span class="eticheta-sectiune">Valorile noastre</span>
+              <h2 class="titlu-sectiune">Ce ne ghideaza</h2>
+            </div>
+            <div class="grila-valori">
+              <div class="card-valoare dezvaluire">
+                <img
+                  src="https://images.unsplash.com/photo-1743193143897-5e1ad9c84165?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=600&q=80"
+                  alt="Sustenabilitate"
+                  loading="lazy"
+                />
+                <div class="suprapunere-valoare"></div>
+                <div class="text-valoare">
+                  <div class="titlu-valoare">Sustenabilitate</div>
+                  <div class="descriere-valoare">
+                    Respectam natura si folosim doar metode de productie
+                    ecologice si sustenabile.
+                  </div>
+                </div>
+              </div>
+              <div class="card-valoare dezvaluire">
+                <img
+                  src="https://images.unsplash.com/photo-1760712629836-f3e18ac1242f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=600&q=80"
+                  alt="Sanatate"
+                  loading="lazy"
+                />
+                <div class="suprapunere-valoare"></div>
+                <div class="text-valoare">
+                  <div class="titlu-valoare">Sanatate</div>
+                  <div class="descriere-valoare">
+                    Misiunea noastra este sa promovam un stil de viata sanatos
+                    prin produse naturale.
+                  </div>
+                </div>
+              </div>
+              <div class="card-valoare dezvaluire">
+                <img
+                  src="https://images.unsplash.com/photo-1677146329971-fbef3e847b2f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=600&q=80"
+                  alt="Calitate"
+                  loading="lazy"
+                />
+                <div class="suprapunere-valoare"></div>
+                <div class="text-valoare">
+                  <div class="titlu-valoare">Calitate</div>
+                  <div class="descriere-valoare">
+                    Fiecare produs este testat si certificat pentru a garanta
+                    cea mai inalta calitate.
+                  </div>
+                </div>
+              </div>
+              <div class="card-valoare dezvaluire">
+                <img
+                  src="https://images.unsplash.com/photo-1766336041971-52f9b44c25fd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=600&q=80"
+                  alt="Comunitate"
+                  loading="lazy"
+                />
+                <div class="suprapunere-valoare"></div>
+                <div class="text-valoare">
+                  <div class="titlu-valoare">Comunitate</div>
+                  <div class="descriere-valoare">
+                    Construim o comunitate de oameni care aleg sa traiasca
+                    natural si sanatos.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="sectiune-cronologie">
+          <div class="container">
+            <div class="text-centrat mb-20 dezvaluire">
+              <span class="eticheta-sectiune">Parcursul nostru</span>
+              <h2 class="titlu-sectiune">Calatoria Noastra</h2>
+            </div>
+            <div class="cronologie">
+              <div class="element-cronologie dezvaluire">
+                <div class="an-cronologie">2018</div>
+                <div class="container-punct-cronologie">
+                  <div class="punct-cronologie"></div>
+                  <div class="linie-cronologie"></div>
+                </div>
+                <div class="corp-cronologie">
+                  <div class="titlu-eveniment">Inceputul</div>
+                  <div class="descriere-eveniment">
+                    Am inceput calatoria cu o viziune simpla: sa aducem natura
+                    mai aproape de oameni.
+                  </div>
+                </div>
+              </div>
+              <div class="element-cronologie dezvaluire">
+                <div class="an-cronologie">2020</div>
+                <div class="container-punct-cronologie">
+                  <div class="punct-cronologie"></div>
+                  <div class="linie-cronologie"></div>
+                </div>
+                <div class="corp-cronologie">
+                  <div class="titlu-eveniment">Primul Laborator</div>
+                  <div class="descriere-eveniment">
+                    Am deschis primul nostru laborator de presare la rece.
+                  </div>
+                </div>
+              </div>
+              <div class="element-cronologie dezvaluire">
+                <div class="an-cronologie">2022</div>
+                <div class="container-punct-cronologie">
+                  <div class="punct-cronologie"></div>
+                  <div class="linie-cronologie"></div>
+                </div>
+                <div class="corp-cronologie">
+                  <div class="titlu-eveniment">Certificare Bio</div>
+                  <div class="descriere-eveniment">
+                    Am obtinut certificarea bio internationala.
+                  </div>
+                </div>
+              </div>
+              <div class="element-cronologie dezvaluire">
+                <div class="an-cronologie">2024</div>
+                <div class="container-punct-cronologie">
+                  <div class="punct-cronologie"></div>
+                </div>
+                <div class="corp-cronologie">
+                  <div class="titlu-eveniment">Extindere</div>
+                  <div class="descriere-eveniment">
+                    Am ajuns la mii de clienti multumiti in toata tara.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="sectiune-apel">
+          <div class="apel-fundal">
+            <img
+              src="https://images.unsplash.com/photo-1637523420664-d28580d2a27d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=1080&q=80"
+              alt="Natural oils"
+              loading="lazy"
+            />
+            <div class="apel-suprapunere"></div>
+          </div>
+          <div class="apel-continut dezvaluire">
+            <h2>Alatura-te Comunitatii</h2>
+            <p>
+              Descopera beneficiile produselor naturale si incepe o viata mai
+              sanatoasa
+            </p>
+            <a
+              href="#"
+              class="buton buton-alb buton-mare"
+              onclick="
+                navigheaza('magazin');
+                return false;
+              "
+            >
+              Cumpara Acum
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </a>
+          </div>
+        </section>
+      </div>
+
+      <div id="pagina-blog" class="pagina">
+        <div class="erou-magazin">
+          <div class="erou-pagina-fundal">
+            <img
+              src="https://images.unsplash.com/photo-1682750545496-39068ee7330b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=1080&q=80"
+              alt="Nature"
+            />
+            <div class="erou-pagina-suprapunere"></div>
+          </div>
+          <div class="erou-pagina-continut">
+            <h1>Blog</h1>
+            <p>Inspiratie pentru un stil de viata natural</p>
+          </div>
+        </div>
+
+        <div class="bara-filtre">
+          <div class="interior-filtre" id="filtre-blog"></div>
+        </div>
+
+        <div class="continut-blog">
+          <div class="container">
+            <div class="grila-blog" id="postari-blog"></div>
+          </div>
+        </div>
+      </div>
+
+      <div id="pagina-contact" class="pagina">
+        <div class="erou-magazin" style="height: 40vh; min-height: 300px">
+          <div class="erou-pagina-fundal">
+            <img
+              src="https://images.unsplash.com/photo-1772319617353-ebc97c5afd92?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=1080&q=80"
+              alt="Contact"
+            />
+            <div class="erou-pagina-suprapunere"></div>
+          </div>
+          <div class="erou-pagina-continut">
+            <h1>Contact</h1>
+            <p>Suntem aici sa te ajutam</p>
+          </div>
+        </div>
+
+        <div class="continut-contact">
+          <div class="container">
+            <div class="grila-contact">
+              <div class="dezvaluire">
+                <span class="eticheta-info-contact">Informatii</span>
+                <h2 class="titlu-info-contact">Ia Legatura</h2>
+                <div class="elemente-info-contact">
+                  <div class="element-info-contact">
+                    <h4>Adresa</h4>
+                    <p>Str. Naturala nr. 123<br />Bucuresti, Romania</p>
+                  </div>
+                  <div class="element-info-contact">
+                    <h4>Telefon</h4>
+                    <p>+40 123 456 789</p>
+                  </div>
+                  <div class="element-info-contact">
+                    <h4>Email</h4>
+                    <p>contact@stropdeviata.ro</p>
+                  </div>
+                  <div class="element-info-contact">
+                    <h4>Program</h4>
+                    <p>
+                      Luni - Vineri: 9:00 - 18:00<br />Sambata: 10:00 - 14:00
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="dezvaluire">
+                <div class="card-formular">
+                  <h2 class="titlu-formular">Trimite-ne un mesaj</h2>
+                  <form id="formular-contact">
+                    <div class="rand-formular">
+                      <div class="grup-formular">
+                        <label for="nume">Nume *</label>
+                        <input
+                          id="nume"
+                          type="text"
+                          placeholder="Ion Popescu"
+                          required
+                        />
+                      </div>
+                      <div class="grup-formular">
+                        <label for="email">Email *</label>
+                        <input
+                          id="email"
+                          type="email"
+                          placeholder="ion@exemplu.ro"
+                          required
+                        />
+                      </div>
+                    </div>
+                    <div class="rand-formular">
+                      <div class="grup-formular">
+                        <label for="telefon">Telefon</label>
+                        <input
+                          id="telefon"
+                          type="tel"
+                          placeholder="+373 123 456"
+                        />
+                      </div>
+                      <div class="grup-formular">
+                        <label for="subiect">Subiect *</label>
+                        <input
+                          id="subiect"
+                          type="text"
+                          placeholder="Subiectul mesajului"
+                          required
+                        />
+                      </div>
+                    </div>
+                    <div class="grup-formular">
+                      <label for="mesaj">Mesaj *</label>
+                      <textarea
+                        id="mesaj"
+                        rows="5"
+                        placeholder="Scrie-ne mesajul tau aici..."
+                        required
+                      ></textarea>
+                    </div>
+                    <button type="submit" class="buton buton-inchis buton-mare">
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      >
+                        <path d="m22 2-7 20-4-9-9-4Z" />
+                        <path d="M22 2 11 13" />
+                      </svg>
+                      Trimite Mesaj
+                    </button>
+                  </form>
+                </div>
+
+                <div class="sectiune-intrebari">
+                  <h3 class="titlu-intrebari">Intrebari Frecvente</h3>
+                  <div class="element-intrebare">
+                    <div class="intrebare">Cat dureaza livrarea?</div>
+                    <div class="raspuns">
+                      Livram in 2-3 zile lucratoare in Bucuresti si in 3-5 zile
+                      in restul tarii.
+                    </div>
+                  </div>
+                  <div class="element-intrebare">
+                    <div class="intrebare">Oferiti livrare gratuita?</div>
+                    <div class="raspuns">
+                      Da, livrare gratuita pentru comenzi de peste 150 RON.
+                    </div>
+                  </div>
+                  <div class="element-intrebare">
+                    <div class="intrebare">Pot returna un produs?</div>
+                    <div class="raspuns">
+                      Da, ai dreptul la retur in 14 zile de la primire, daca nu
+                      este deschis.
+                    </div>
+                  </div>
+                  <div class="element-intrebare">
+                    <div class="intrebare">Produsele sunt certificate bio?</div>
+                    <div class="raspuns">
+                      Da, toate produsele noastre sunt certificate organic.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="pagina-produs" class="pagina">
+        <div class="detaliu-produs">
+          <div class="container" id="container-detaliu-produs"></div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="subsol">
+      <div class="container">
+        <div class="grila-subsol">
+          <div class="brand-subsol">
+            <a
+              class="logo"
+              href="#"
+              onclick="
+                navigheaza('acasa');
+                return false;
+              "
+            >
+              <span class="logo-inchis">strop</span>
+              <span class="logo-punct"></span>
+              <span class="logo-verde">viata</span>
+            </a>
+            <p>
+              Produse naturale, presate la rece, pentru un stil de viata sanatos
+              si echilibrat.
+            </p>
+          </div>
+          <div class="coloana-subsol">
+            <h3>Navigare</h3>
+            <ul>
+              <li>
+                <a
+                  href="#"
+                  onclick="
+                    navigheaza('acasa');
+                    return false;
+                  "
+                  >Acasa</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  onclick="
+                    navigheaza('magazin');
+                    return false;
+                  "
+                  >Magazin</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  onclick="
+                    navigheaza('despre');
+                    return false;
+                  "
+                  >Despre Noi</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  onclick="
+                    navigheaza('blog');
+                    return false;
+                  "
+                  >Blog</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  onclick="
+                    navigheaza('contact');
+                    return false;
+                  "
+                  >Contact</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="coloana-subsol">
+            <h3>Servicii</h3>
+            <ul>
+              <li><a href="#">Livrare</a></li>
+              <li><a href="#">Retur si Garantie</a></li>
+              <li><a href="#">Intrebari Frecvente</a></li>
+              <li><a href="#">Termeni si Conditii</a></li>
+            </ul>
+          </div>
+          <div class="coloana-subsol">
+            <h3>Contact</h3>
+            <address>
+              Str. Naturala nr. 123<br />
+              Bucuresti, Romania<br /><br />
+              +40 123 456 789<br />
+              contact@stropdeviata.ro
+            </address>
+          </div>
+        </div>
+        <div class="baza-subsol">
+          <p>&copy; 2026 strop.viata &mdash; Toate drepturile rezervate.</p>
+        </div>
+      </div>
+    </footer>
+
+    <div id="notificare" class="notificare"></div>
+
+    <!-- Cosul de cumparaturi -->
+    <div
+      class="cos-suprapunere"
+      id="cos-suprapunere"
+      onclick="inchideCos()"
+    ></div>
+    <div class="panou-cos" id="panou-cos">
+      <div class="antet-cos">
+        <h2>Coșul meu</h2>
+        <button class="buton-inchidere-cos" onclick="inchideCos()">
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      <div class="continut-cos" id="continut-cos">
+        <!-- Produsele vor fi generate aici via JS -->
+      </div>
+      <div class="subsol-cos">
+        <div class="total-cos">
+          <span>Total:</span>
+          <span id="total-pret-cos">0.00 RON</span>
+        </div>
+        <button
+          class="buton buton-principal buton-mare"
+          style="width: 100%"
+          onclick="
+            arataNotificare('Finalizarea comenzii va fi disponibilă în curând!')
+          "
+        >
+          Finalizează Comanda
+        </button>
+      </div>
+    </div>
+
+    <script src="index.js"></script>
+  </body>
+</html>
