@@ -1,0 +1,708 @@
+<!doctype html>
+<html lang="ro">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Autentificare — Strop de Viață</title>
+    <meta
+      name="description"
+      content="Conectează-te sau creează un cont nou pe Strop de Viață."
+    />
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      /* ===== Auth Page Specific Styles ===== */
+      .pagina-autentificare {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+        background: var(--neutral-950);
+      }
+
+      .autentificare-fundal {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+      }
+
+      .autentificare-fundal img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0.3;
+        filter: blur(2px);
+      }
+
+      .autentificare-suprapunere {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          135deg,
+          rgba(6, 78, 59, 0.5) 0%,
+          rgba(10, 10, 10, 0.7) 50%,
+          rgba(10, 10, 10, 0.85) 100%
+        );
+      }
+
+      .autentificare-container {
+        position: relative;
+        z-index: 10;
+        width: 100%;
+        max-width: 480px;
+        padding: 1.5rem;
+      }
+
+      .autentificare-brand {
+        text-align: center;
+        margin-bottom: 2.5rem;
+      }
+
+      .autentificare-brand .logo {
+        display: inline-flex;
+        font-size: 2rem;
+        margin-bottom: 0.75rem;
+      }
+
+      .autentificare-brand p {
+        color: var(--neutral-400);
+        font-size: 0.9375rem;
+      }
+
+      .autentificare-card {
+        background: rgba(255, 255, 255, 0.06);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: var(--radius-lg);
+        padding: 2.5rem;
+        box-shadow: 0 25px 50px rgba(2, 2, 2, 0.525);
+      }
+
+      .tab-uri-autentificare {
+        display: flex;
+        gap: 0;
+        margin-bottom: 2rem;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 9999px;
+        padding: 4px;
+      }
+
+      .tab-autentificare {
+        flex: 1;
+        padding: 0.75rem 1.5rem;
+        border: none;
+        background: transparent;
+        color: var(--neutral-400);
+        font-size: 0.875rem;
+        font-weight: 500;
+        font-family: var(--font-sans);
+        cursor: pointer;
+        border-radius: 9999px;
+        transition: all 0.3s ease;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+      }
+
+      .tab-autentificare.activ {
+        background: var(--emerald-500);
+        color: white;
+        box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+      }
+
+      .tab-autentificare:not(.activ):hover {
+        color: var(--neutral-200);
+      }
+
+      .formular-autentificare {
+        display: none;
+      }
+
+      .formular-autentificare.activ {
+        display: block;
+        animation: aparitieFormular 0.4s ease;
+      }
+
+      @keyframes aparitieFormular {
+        from {
+          opacity: 0;
+          transform: translateY(12px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .titlu-formular-auth {
+        font-family: var(--font-serif);
+        font-size: 1.75rem;
+        color: white;
+        margin-bottom: 0.5rem;
+      }
+
+      .subtitlu-formular-auth {
+        color: var(--neutral-400);
+        font-size: 0.9375rem;
+        margin-bottom: 2rem;
+      }
+
+      .grup-auth {
+        margin-bottom: 1.25rem;
+      }
+
+      .grup-auth label {
+        display: block;
+        font-size: 0.8125rem;
+        color: var(--neutral-400);
+        margin-bottom: 0.5rem;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+      }
+
+      .grup-auth input {
+        width: 100%;
+        padding: 0.875rem 1rem;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: var(--radius);
+        background: rgba(255, 255, 255, 0.06);
+        font-size: 0.9375rem;
+        color: white;
+        transition: all 0.2s;
+        outline: none;
+        font-family: var(--font-sans);
+      }
+
+      .grup-auth input::placeholder {
+        color: var(--neutral-600);
+      }
+
+      .grup-auth input:focus {
+        border-color: var(--emerald-500);
+        background: rgba(255, 255, 255, 0.08);
+        box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.15);
+      }
+
+      .grup-auth input.eroare {
+        border-color: var(--red-500);
+        box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.15);
+      }
+
+      .mesaj-eroare-camp {
+        font-size: 0.8125rem;
+        color: var(--red-500);
+        margin-top: 0.4rem;
+        display: none;
+      }
+
+      .mesaj-eroare-camp.vizibil {
+        display: block;
+      }
+
+      .optiuni-auth {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 1.5rem;
+        font-size: 0.875rem;
+      }
+
+      .optiuni-auth label {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: var(--neutral-400);
+        cursor: pointer;
+      }
+
+      .optiuni-auth input[type="checkbox"] {
+        accent-color: var(--emerald-500);
+        width: 16px;
+        height: 16px;
+      }
+
+      .buton-auth {
+        width: 100%;
+        padding: 1rem;
+        border: none;
+        border-radius: 9999px;
+        background: var(--emerald-500);
+        color: white;
+        font-size: 1rem;
+        font-weight: 600;
+        font-family: var(--font-sans);
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .buton-auth:hover {
+        background: var(--emerald-700);
+        transform: translateY(-1px);
+        box-shadow: 0 8px 24px rgba(16, 185, 129, 0.25);
+      }
+
+      .buton-auth:active {
+        transform: translateY(0);
+      }
+
+      .separator-auth {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin: 1.5rem 0;
+        color: var(--neutral-600);
+        font-size: 0.8125rem;
+      }
+
+      .separator-auth::before,
+      .separator-auth::after {
+        content: "";
+        flex: 1;
+        height: 1px;
+        background: rgba(255, 255, 255, 0.1);
+      }
+
+      .link-inapoi {
+        text-align: center;
+        margin-top: 2rem;
+      }
+
+      .link-inapoi a {
+        color: var(--neutral-400);
+        font-size: 0.875rem;
+        transition: color 0.2s;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .link-inapoi a:hover {
+        color: var(--emerald-400);
+      }
+
+      /* Success state */
+      .mesaj-succes {
+        display: none;
+        text-align: center;
+        padding: 2rem 0;
+        animation: aparitieFormular 0.5s ease;
+      }
+
+      .mesaj-succes.vizibil {
+        display: block;
+      }
+
+      .mesaj-succes .icon-succes {
+        width: 64px;
+        height: 64px;
+        border-radius: 50%;
+        background: rgba(16, 185, 129, 0.15);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 1.5rem;
+      }
+
+      .mesaj-succes .icon-succes svg {
+        color: var(--emerald-400);
+      }
+
+      .mesaj-succes h3 {
+        font-family: var(--font-serif);
+        font-size: 1.5rem;
+        color: white;
+        margin-bottom: 0.5rem;
+      }
+
+      .mesaj-succes p {
+        color: var(--neutral-400);
+        font-size: 0.9375rem;
+        margin-bottom: 1.5rem;
+      }
+
+      /* User logged in panel */
+      .panou-utilizator {
+        display: none;
+        animation: aparitieFormular 0.5s ease;
+      }
+
+      .panou-utilizator.vizibil {
+        display: block;
+      }
+
+      .avatar-utilizator {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        background: linear-gradient(
+          135deg,
+          var(--emerald-500),
+          var(--emerald-700)
+        );
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 1.5rem;
+        font-family: var(--font-display);
+        font-size: 2rem;
+        color: white;
+        font-weight: 600;
+      }
+
+      .info-utilizator {
+        text-align: center;
+        margin-bottom: 2rem;
+      }
+
+      .info-utilizator h3 {
+        font-family: var(--font-serif);
+        font-size: 1.5rem;
+        color: white;
+        margin-bottom: 0.25rem;
+      }
+
+      .info-utilizator p {
+        color: var(--neutral-400);
+        font-size: 0.9375rem;
+      }
+
+      .detalii-utilizator {
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: var(--radius);
+        padding: 1.25rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .rand-detaliu {
+        display: flex;
+        justify-content: space-between;
+        padding: 0.5rem 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        font-size: 0.875rem;
+      }
+
+      .rand-detaliu:last-child {
+        border-bottom: none;
+      }
+
+      .rand-detaliu .eticheta {
+        color: var(--neutral-500);
+      }
+
+      .rand-detaliu .valoare {
+        color: var(--neutral-200);
+      }
+
+      .buton-deconectare {
+        width: 100%;
+        padding: 0.875rem;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        border-radius: 9999px;
+        background: transparent;
+        color: var(--neutral-300);
+        font-size: 0.9375rem;
+        font-family: var(--font-sans);
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+
+      .buton-deconectare:hover {
+        background: rgba(239, 68, 68, 0.15);
+        border-color: var(--red-500);
+        color: var(--red-500);
+      }
+
+      /* Parola strength indicator */
+      .indicator-parola {
+        display: flex;
+        gap: 4px;
+        margin-top: 0.5rem;
+      }
+
+      .bara-putere {
+        flex: 1;
+        height: 3px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 2px;
+        transition: background 0.3s;
+      }
+
+      .bara-putere.slab {
+        background: var(--red-500);
+      }
+      .bara-putere.mediu {
+        background: var(--amber-400);
+      }
+      .bara-putere.puternic {
+        background: var(--emerald-500);
+      }
+
+      .text-putere {
+        font-size: 0.75rem;
+        margin-top: 0.35rem;
+        color: var(--neutral-500);
+      }
+
+      /* Responsive */
+      @media (max-width: 480px) {
+        .autentificare-card {
+          padding: 1.75rem;
+        }
+        .autentificare-brand .logo {
+          font-size: 1.75rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="pagina-autentificare">
+      <!-- Background -->
+      <div class="autentificare-fundal">
+        <img src="imagini/cimpie.png" alt="Câmpie verde" />
+        <div class="autentificare-suprapunere"></div>
+      </div>
+
+      <div class="autentificare-container">
+        <!-- Brand -->
+        <div class="autentificare-brand">
+          <a class="logo" href="index.html">
+            <span class="logo-inchis" style="color: white">strop</span>
+            <span class="logo-punct"></span>
+            <span class="logo-verde" style="color: var(--emerald-400)"
+              >viata</span
+            >
+          </a>
+          <p>Bine ai venit în comunitatea noastră</p>
+        </div>
+
+        <!-- Auth Card -->
+        <div class="autentificare-card">
+          <!-- Tabs -->
+          <div class="tab-uri-autentificare" id="tab-uri">
+            <button
+              class="tab-autentificare activ"
+              data-tab="logare"
+              onclick="schimbaTab('logare')"
+            >
+              Logare
+            </button>
+            <button
+              class="tab-autentificare"
+              data-tab="inregistrare"
+              onclick="schimbaTab('inregistrare')"
+            >
+              Înregistrare
+            </button>
+          </div>
+
+          <!-- Login Form -->
+          <form
+            id="formular-logare"
+            class="formular-autentificare activ"
+            onsubmit="logare(event)"
+          >
+            <h2 class="titlu-formular-auth">Bine ai revenit!</h2>
+            <p class="subtitlu-formular-auth">Conectează-te la contul tău</p>
+
+            <div class="grup-auth">
+              <label for="logare-email">Email</label>
+              <input
+                id="logare-email"
+                type="email"
+                placeholder="adresa@exemplu.ro"
+                required
+              />
+              <div class="mesaj-eroare-camp" id="eroare-logare-email"></div>
+            </div>
+
+            <div class="grup-auth">
+              <label for="logare-parola">Parolă</label>
+              <input
+                id="logare-parola"
+                type="password"
+                placeholder="••••••••"
+                required
+              />
+              <div class="mesaj-eroare-camp" id="eroare-logare-parola"></div>
+            </div>
+
+            <div class="optiuni-auth">
+              <label>
+                <input type="checkbox" id="tine-minte" /> Ține-mă minte
+              </label>
+            </div>
+
+            <button type="submit" class="buton-auth">Conectare</button>
+          </form>
+
+          <!-- Register Form -->
+          <form
+            id="formular-inregistrare"
+            class="formular-autentificare"
+            onsubmit="inregistrare(event)"
+          >
+            <h2 class="titlu-formular-auth">Creează un cont</h2>
+            <p class="subtitlu-formular-auth">
+              Alătură-te comunității Strop de Viață
+            </p>
+
+            <div class="grup-auth">
+              <label for="inregistrare-nume">Nume complet</label>
+              <input
+                id="inregistrare-nume"
+                type="text"
+                placeholder="Ion Popescu"
+                required
+              />
+              <div
+                class="mesaj-eroare-camp"
+                id="eroare-inregistrare-nume"
+              ></div>
+            </div>
+
+            <div class="grup-auth">
+              <label for="inregistrare-email">Email</label>
+              <input
+                id="inregistrare-email"
+                type="email"
+                placeholder="adresa@exemplu.ro"
+                required
+              />
+              <div
+                class="mesaj-eroare-camp"
+                id="eroare-inregistrare-email"
+              ></div>
+            </div>
+
+            <div class="grup-auth">
+              <label for="inregistrare-telefon">Telefon (opțional)</label>
+              <input
+                id="inregistrare-telefon"
+                type="tel"
+                placeholder="+373 123 456 789"
+              />
+            </div>
+
+            <div class="grup-auth">
+              <label for="inregistrare-parola">Parolă</label>
+              <input
+                id="inregistrare-parola"
+                type="password"
+                placeholder="Minimum 6 caractere"
+                required
+                oninput="verificaPutereParola(this.value)"
+              />
+              <div class="indicator-parola" id="indicator-parola">
+                <div class="bara-putere" id="bara-1"></div>
+                <div class="bara-putere" id="bara-2"></div>
+                <div class="bara-putere" id="bara-3"></div>
+                <div class="bara-putere" id="bara-4"></div>
+              </div>
+              <div class="text-putere" id="text-putere"></div>
+              <div
+                class="mesaj-eroare-camp"
+                id="eroare-inregistrare-parola"
+              ></div>
+            </div>
+
+            <div class="grup-auth">
+              <label for="inregistrare-confirmare">Confirmă parola</label>
+              <input
+                id="inregistrare-confirmare"
+                type="password"
+                placeholder="Repetă parola"
+                required
+              />
+              <div
+                class="mesaj-eroare-camp"
+                id="eroare-inregistrare-confirmare"
+              ></div>
+            </div>
+
+            <button type="submit" class="buton-auth" style="margin-top: 0.5rem">
+              Creează Cont
+            </button>
+          </form>
+
+          <!-- Success Message -->
+          <div class="mesaj-succes" id="mesaj-succes">
+            <div class="icon-succes">
+              <svg
+                width="32"
+                height="32"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M20 6 9 17l-5-5" />
+              </svg>
+            </div>
+            <h3 id="titlu-succes">Cont creat cu succes!</h3>
+            <p id="text-succes">Te poți conecta acum cu datele tale.</p>
+            <button class="buton-auth" onclick="schimbaTab('logare')">
+              Mergi la Logare
+            </button>
+          </div>
+
+          <!-- Logged In Panel -->
+          <div class="panou-utilizator" id="panou-utilizator">
+            <div class="avatar-utilizator" id="avatar-utilizator"></div>
+            <div class="info-utilizator">
+              <h3 id="nume-utilizator"></h3>
+              <p id="email-utilizator"></p>
+            </div>
+            <div class="detalii-utilizator">
+              <div class="rand-detaliu">
+                <span class="eticheta">Telefon</span>
+                <span class="valoare" id="telefon-utilizator">—</span>
+              </div>
+              <div class="rand-detaliu">
+                <span class="eticheta">Membru din</span>
+                <span class="valoare" id="data-utilizator">—</span>
+              </div>
+            </div>
+            <button
+              class="buton-auth"
+              onclick="window.location.href = 'index.html'"
+              style="margin-bottom: 0.75rem"
+            >
+              ← Mergi la Magazin
+            </button>
+            <button class="buton-deconectare" onclick="deconectare()">
+              Deconectare
+            </button>
+          </div>
+        </div>
+
+        <!-- Back link -->
+        <div class="link-inapoi">
+          <a href="index.html">
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path d="M19 12H5M12 19l-7-7 7-7" />
+            </svg>
+            Înapoi la pagina principală
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div id="notificare" class="notificare"></div>
+
+    <script src="autentificare.js"></script>
+  </body>
+</html>
